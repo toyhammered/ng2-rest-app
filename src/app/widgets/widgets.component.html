@@ -19,7 +19,7 @@
         <div class="widget-card mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title">
                 <h2 *ngIf="!selectedWidget" class="mdl-card__title-text">Select a Widget</h2>
-                <h2 *ngIf="selectedWidget" class="mdl-card__title-text">{{selectedWidget?.name}}</h2>
+                <h2 *ngIf="selectedWidget" class="mdl-card__title-text">{{selectedWidget.name}}</h2>
             </div>
             <div class="mdl-card__supporting-text">
                 <pre>{{selectedWidget | json}}</pre>
