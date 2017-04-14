@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2RestAppRoutingModule } from './app-routing.module';
 
-import { ItemsService, WidgetsService } from './shared';
+import { ItemsService, WidgetsService, ReviewService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -12,6 +12,7 @@ import { ItemsListComponent } from './items/items-list/items-list.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 import { FeaturedItemComponent } from './items/featured-item/featured-item.component';
 import { WidgetsComponent } from './widgets/widgets.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
     ItemsListComponent,
     ItemDetailComponent,
     FeaturedItemComponent,
-    WidgetsComponent
+    WidgetsComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
     HttpModule,
     Ng2RestAppRoutingModule
   ],
-  providers: [ItemsService, WidgetsService],
+  providers: [ItemsService, WidgetsService, ReviewService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
