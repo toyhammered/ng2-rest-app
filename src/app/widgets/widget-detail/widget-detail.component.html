@@ -1,0 +1,15 @@
+<div class="widget-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 *ngIf="!widget" class="mdl-card__title-text">Select a Widget</h2>
+        <h2 *ngIf="widget" class="mdl-card__title-text">{{widget.name}}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <pre>{{widget | json}}</pre>
+    </div>
+    <div class="mdl-card__actions">
+        <button type="submit" (click)="cancelled.emit(widget)"
+                class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        <button type="submit" (click)="saved.emit(widget)"
+                class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
+    </div>
+</div>

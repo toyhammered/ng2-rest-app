@@ -8,8 +8,8 @@ import { WidgetsService, Widget } from '../shared';
 })
 
 export class WidgetsComponent implements OnInit {
-    selectedWidget: Widget;
     widgets: Widget[];
+    selectedWidget: Widget;
 
     constructor(private widgetsService: WidgetsService) {}
 
@@ -19,5 +19,17 @@ export class WidgetsComponent implements OnInit {
 
     selectWidget(widget) {
       this.selectedWidget = widget;
+    }
+
+    deleteWidget(widget) {
+      console.log("Widget Deleted", widget);
+    }
+
+    saveWidget(widget) {
+      console.log("Widget Saved", widget);
+    }
+
+    cancel(widget) {
+      console.log('AWWWWWW SAD PANDA!', widget);
     }
 }
