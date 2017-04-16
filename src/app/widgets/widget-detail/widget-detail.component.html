@@ -1,15 +1,37 @@
 <div class="widget-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
-        <h2 *ngIf="!widget" class="mdl-card__title-text">Select a Widget</h2>
-        <h2 *ngIf="widget" class="mdl-card__title-text">{{widget.name}}</h2>
+        <h2 *ngIf="!selectedWidget.id" class="mdl-card__title-text">Select a Widget</h2>
+        <h2 *ngIf="selectedWidget.id" class="mdl-card__title-text">{{originalName}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
         <pre>{{widget | json}}</pre>
+
+        <form novalidate #myForm="ngForm">
+            <div class="mdl-textfield mdl-js-textfield">
+                <label>Widget Name</label>
+                <input 
+                    [(ngModel)]="selectedWidget.name" 
+                    name="name" 
+                    required 
+                    placeholder="Enter a name" 
+                    class="mdl-textfield__input" type="text">
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield">
+                <label>Widget Description</label>
+                <input 
+                    [(ngModel)]="selectedWidget.description" 
+                    name="description" 
+                    placeholder="Enter a description" 
+                    class="mdl-textfield__input" type="text">
+            </div>
+        </form>
+        <hr>
+        <pre>{{myForm.value | json}}</pre>
+
     </div>
     <div class="mdl-card__actions">
-        <button type="submit" (click)="cancelled.emit(widget)"
-                class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
-        <button type="submit" (click)="saved.emit(widget)"
-                class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
+        <button type="submit" (click)="cancelled.emit(widget)" class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        <button type="submit" [disabled]="!myForm.valid" (click)="saved.emit(widget)" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
     </div>
 </div>
