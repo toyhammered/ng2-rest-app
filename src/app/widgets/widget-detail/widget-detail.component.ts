@@ -8,7 +8,13 @@ import { Widget } from '../../shared';
 })
 
 export class WidgetDetailComponent {
-    @Input() widget: Widget;
+    selectedWidget: Widget;
+    originalName;
     @Output() saved = new EventEmitter();
     @Output() cancelled = new EventEmitter();
+
+    @Input() set widget(value: Widget) {
+        if (value) { this.originalName = value.name; }
+        this.selectedWidget = Object.assign({}, value);
+    }
 }
